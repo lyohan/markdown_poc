@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import MarkdownEditor from '@uiw/react-markdown-editor';
+import { useState } from 'react'
 
 function App() {
+  const [markdown, setMarkdown] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <MarkdownEditor
+      height={1000}
+      visible
+      value="# This is a H1  \n## This is a H2  \n###### This is a H6"
+      onChange={(editor, data, value) => setMarkdown(value)}
+    />
+    </>
   );
 }
 
